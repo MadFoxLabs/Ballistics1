@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv6hgjshhejvp"]
+
+[ext_resource type="Script" path="res://scripts/Bullet.gd" id="1_w65wj"]
+[ext_resource type="Texture2D" uid="uid://cxttljhv3jfly" path="res://assets/Missile.png" id="2_18knh"]
+
+[node name="Bullet" type="CharacterBody2D"]
+script = ExtResource("1_w65wj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-16, 0)
+texture = ExtResource("2_18knh")
+offset = Vector2(16, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
