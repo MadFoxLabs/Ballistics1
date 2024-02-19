@@ -15,7 +15,16 @@ func _physics_process(delta):
 	rotation = velocity.angle()
 	
 
-	move_and_slide()
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		
+		
+		var EXPLOSION  = load("res://scenes/explosion.tscn")
+		var explosion = EXPLOSION.instantiate()
+		explosion.position = self.position
+		get_parent().add_child(explosion)
+		
+		self.queue_free()
 
 
 func _on_timer_timeout():

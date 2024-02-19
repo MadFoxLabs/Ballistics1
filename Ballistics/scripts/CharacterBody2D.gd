@@ -1,5 +1,6 @@
 extends CharacterBody2D
 const BULLET = preload("res://scenes/bullet.tscn")
+@onready var missiles = $"../../Missiles"
 
 const SPEED = 300.0
 
@@ -27,8 +28,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		var new_bullet = BULLET.instantiate()
 		new_bullet.position = self.position
-		new_bullet.fired(Vector2.RIGHT.rotated(self.rotation), 1250)
+		new_bullet.fired(Vector2.RIGHT.rotated(self.rotation), 700)
 		
-		get_parent().add_child(new_bullet)
+		missiles.add_child(new_bullet)
 
 	move_and_slide()
