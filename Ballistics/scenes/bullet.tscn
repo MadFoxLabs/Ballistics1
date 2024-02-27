@@ -28,8 +28,15 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-14.5, -0.5)
 shape = SubResource("RectangleShape2D_obgme")
+disabled = true
 
 [node name="VectorsLayer" parent="." instance=ExtResource("3_wsp6o")]
+visible = false
+
+[node name="TimerPrime" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerPrime" to="." method="_on_timer_prime_timeout"]

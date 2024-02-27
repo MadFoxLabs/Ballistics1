@@ -19,6 +19,9 @@ var displacement = Vector2()
 
 
 
+
+@onready var collision_shape_2d = $CollisionShape2D
+
 @onready var vectors_layer = $VectorsLayer
 func fired(initial_speed_value, power, initial_angle):
 	
@@ -92,8 +95,14 @@ func _integrate_forces(state):
 		
 	apply_force(drag_force, displacement)
 	
+	
+	
 	#print(lift_force)
 	#print(drag_force)
 	#apply_force(-lift_force, fins_position.rotated(rotation))
 	#print(product)
 	#print(linear_velocity.length())
+	
+	
+func _on_timer_prime_timeout():
+	collision_shape_2d.disabled = false
