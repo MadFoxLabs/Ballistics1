@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv6hgjshhejvp"]
+[gd_scene load_steps=5 format=3 uid="uid://cv6hgjshhejvp"]
 
 [ext_resource type="Script" path="res://scripts/Bullet.gd" id="1_w65wj"]
 [ext_resource type="Texture2D" uid="uid://cxttljhv3jfly" path="res://assets/Missile.png" id="2_18knh"]
+[ext_resource type="PackedScene" uid="uid://dejgiwh35b6e4" path="res://vectors/VectorsLayer.tscn" id="3_wsp6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obgme"]
 size = Vector2(29, 3)
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="Bullet" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 2
+can_sleep = false
+max_contacts_reported = 10
+contact_monitor = true
 script = ExtResource("1_w65wj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -25,4 +29,7 @@ autostart = true
 position = Vector2(-14.5, -0.5)
 shape = SubResource("RectangleShape2D_obgme")
 
+[node name="VectorsLayer" parent="." instance=ExtResource("3_wsp6o")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -108,8 +108,8 @@ sources/0 = SubResource("TileSetAtlasSource_w6dry")
 [node name="Missiles" type="Node2D" parent="."]
 position = Vector2(35, 615)
 
-[node name="Car" type="CharacterBody2D" parent="."]
-position = Vector2(49, 614)
+[node name="Car" type="CharacterBody2D" parent="." groups=["Player"]]
+position = Vector2(-809, 542)
 
 [node name="Sprite2D" type="Sprite2D" parent="Car"]
 texture_filter = 1

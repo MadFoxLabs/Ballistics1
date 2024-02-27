@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dejgiwh35b6e4"]
+
+[ext_resource type="Script" path="res://vectors/VectorsLayer.gd" id="1_30abj"]
+[ext_resource type="Script" path="res://vectors/ShowVector.gd" id="2_7ftet"]
+
+[node name="VectorsLayer" type="CanvasLayer"]
+script = ExtResource("1_30abj")
+
+[node name="DebugDraw3D" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_7ftet")
+
+[node name="MyLabels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
