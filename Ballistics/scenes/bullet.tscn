@@ -31,7 +31,6 @@ shape = SubResource("RectangleShape2D_obgme")
 disabled = true
 
 [node name="VectorsLayer" parent="." instance=ExtResource("3_wsp6o")]
-visible = false
 
 [node name="TimerPrime" type="Timer" parent="."]
 wait_time = 0.2
